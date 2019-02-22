@@ -1,0 +1,150 @@
+html,
+body {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 35px;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  background-color: rgb(84, 96, 109);
+  color: whitesmoke;
+  background-image: url(img/starts.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-shadow: 2px 2px black;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/************* Splash page for game start and game over ***********/
+
+.splashScreen {
+  text-shadow: 2px 2px 5px black;
+  margin-top: 10%;
+  color: white;
+}
+
+/************* Play Button on splash page ***********/
+#startButton {
+  font-family: initial;
+  font-size: 100px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+#startButton:hover {
+  color: rgb(63, 214, 58);
+  /* below adds pop-out effect for button */
+  -webkit-transform: scale(1.3); 
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+/************* Game Board/Grid that holds the score section and the cards ***********/
+.grid,
+.scoreContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid {
+  justify-content: space-evenly;
+}
+
+.scoreContainer {
+  margin-left: 20px;
+  margin-right: 10px;
+  justify-content: space-between;
+  text-align: left;
+}
+
+/************* Reset Button on game board/grid ***********/
+
+#restartButton {
+  align-self: flex-end;
+  /* margin-right: 10px; */
+  font-size: 25px;
+  color: whitesmoke;
+  text-shadow: 2px 2px black;
+}
+
+#restartButton:hover {
+  color: white;
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+#restartButton:hover .helpText {
+  visibility: visible;
+}
+
+.helpText {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10pt;
+  visibility: hidden;
+  color: whitesmoke;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: 1;
+}
+
+/************* Cards ***********/
+.card {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s linear; /** controls the speed of card flip **/
+  transform-style: preserve-3d;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.card,
+.back,
+.front {
+  box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+  height: 120px;
+  width: 120px;
+}
+
+.back,
+.front {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-image: url(img/astronaut_graphic.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: whitesmoke;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.selected {
+  cursor: default;
+  transform: rotateY(180deg);
+}
+
+.match {
+  cursor: default;
+  transform: rotateY(180deg); /* This keeps the card flipped if matched */
+  box-shadow: 0 4px 4px 0 rgb(202, 202, 33);
+}
